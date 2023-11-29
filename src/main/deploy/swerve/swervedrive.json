@@ -1,0 +1,12 @@
+{
+  "imu": {
+    "type": "navx"
+  },
+  "invertedIMU": true,
+  "modules": [
+    "frontleft.json",
+    "frontright.json",
+    "backleft.json",
+    "backright.json"
+  ]
+}
