@@ -57,17 +57,17 @@ public class SwerveSubsystem extends SubsystemBase
    */
   public SwerveSubsystem(File directory)
   {
-    // Angle conversion factor is 360 / (GEAR RATIO * ENCODER RESOLUTION)
+    // Steering conversion factor is 360 / (GEAR RATIO * ENCODER RESOLUTION)
     //  In this case the gear ratio is 12.8 motor revolutions per wheel rotation.
     //  The encoder resolution per motor revolution is 1 per motor revolution.
     double SteeringConversionFactor = SwerveMath.calculateDegreesPerSteeringRotation(Constants.STEERING_GEAR_RATIO, Constants.ENCODER_PULSE_PER_ROTATION);
-    // Motor conversion factor is (PI * WHEEL DIAMETER) / (GEAR RATIO * ENCODER RESOLUTION).
+    // Drive conversion factor is (PI * WHEEL DIAMETER) / (GEAR RATIO * ENCODER RESOLUTION).
     //  In this case the wheel diameter is 4 inches.
     //  The gear ratio is 6.75 motor revolutions per wheel rotation.
     //  The encoder resolution per motor revolution is 1 per motor revolution.
     double DriveConversionFactor = SwerveMath.calculateMetersPerRotation(Units.inchesToMeters(Constants.WHEEL_DIAMETER), Constants.DRIVE_GEAR_RATIO, Constants.ENCODER_PULSE_PER_ROTATION);
     System.out.println("\"conversionFactor\": {");
-    System.out.println("\t\"angle\": " + SteeringConversionFactor + ",");
+    System.out.println("\t\"steering\": " + SteeringConversionFactor + ",");
     System.out.println("\t\"drive\": " + DriveConversionFactor);
     System.out.println("}");
 
