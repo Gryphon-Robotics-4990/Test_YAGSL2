@@ -60,23 +60,21 @@ public class SwerveSubsystem extends SubsystemBase
     // Angle conversion factor is 360 / (GEAR RATIO * ENCODER RESOLUTION)
     //  In this case the gear ratio is 12.8 motor revolutions per wheel rotation.
     //  The encoder resolution per motor revolution is 1 per motor revolution.
-    double angleConversionFactor = SwerveMath.calculateDegreesPerSteeringRotation(12.8, 1);
+    double SteeringConversionFactor = SwerveMath.calculateDegreesPerSteeringRotation(Constants.STEERING_GEAR_RATIO, Constants.ENCODER_PULSE_PER_ROTATION);
     // Motor conversion factor is (PI * WHEEL DIAMETER) / (GEAR RATIO * ENCODER RESOLUTION).
     //  In this case the wheel diameter is 4 inches.
     //  The gear ratio is 6.75 motor revolutions per wheel rotation.
     //  The encoder resolution per motor revolution is 1 per motor revolution.
-    double driveConversionFactor = SwerveMath.calculateMetersPerRotation(Units.inchesToMeters(4), 6.75, 1);
+    double DriveConversionFactor = SwerveMath.calculateMetersPerRotation(Units.inchesToMeters(Constants.WHEEL_DIAMETER), Constants.DRIVE_GEAR_RATIO, Constants.ENCODER_PULSE_PER_ROTATION);
     System.out.println("\"conversionFactor\": {");
-    System.out.println("\t\"angle\": " + angleConversionFactor + ",");
-    System.out.println("\t\"drive\": " + driveConversionFactor);
+    System.out.println("\t\"angle\": " + SteeringConversionFactor + ",");
+    System.out.println("\t\"drive\": " + DriveConversionFactor);
     System.out.println("}");
 
     // Configure the Telemetry before creating the SwerveDrive to avoid unnecessary objects being created.
     SwerveDriveTelemetry.verbosity = TelemetryVerbosity.HIGH;
     try
     {
-      double DriveConversionFactor = SwerveMath.calculateMetersPerRotation(Units.inchesToMeters(Constants.WHEEL_DIAMETER), Constants.GEAR_RATIO, Constants.ENCODER_PULSE_PER_ROTATION);
-      double SteeringConversionFactor = SwerveMath.calculateDegreesPerSteeringRotation(Constants.GEAR_RATIO, Constants.ENCODER_PULSE_PER_ROTATION);
       swerveDrive = new SwerveParser(directory).createSwerveDrive(maximumSpeed, SteeringConversionFactor, DriveConversionFactor);
     } catch (Exception e)
     {
