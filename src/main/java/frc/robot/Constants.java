@@ -26,6 +26,7 @@ public final class Constants
   public static final int WHEEL_DIAMETER = 4; // Inches
   public static final double GEAR_RATIO = 6.75;
   public static final double ENCODER_RESOLUTION = 2^14;
+  public static final double ENCODER_PULSE_PER_ROTATION = 1;
 
   public static final class Auton
   {
