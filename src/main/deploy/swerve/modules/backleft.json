@@ -20,7 +20,7 @@
   },
   "encoder": {
     "type": "canandcoder",
-    "id": 0,
+    "id": 6,
     "canbus": null
   }
 }
