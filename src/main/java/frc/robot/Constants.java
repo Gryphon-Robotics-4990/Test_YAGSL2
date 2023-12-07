@@ -25,7 +25,7 @@ public final class Constants
   public static final double LOOP_TIME  = 0.13; //s, 20ms + 110ms sprk max velocity lag
   public static final int WHEEL_DIAMETER = 4; // Inches
   public static final double DRIVE_GEAR_RATIO = 6.75;
-  public static final double STEERING_GEAR_RATIO = 12.8;
+  public static final double STEERING_GEAR_RATIO = 21.428;
   public static final double ENCODER_RESOLUTION = 2^14;
   public static final double ENCODER_PULSE_PER_ROTATION = 1;
 
@@ -59,7 +59,7 @@ public final class Constants
 
   public static final class Ports
   {
-    public static int PORT_JOYSTICK_DRIVE = 2;
+    public static int PORT_JOYSTICK_DRIVE = 0;
     public static int PORT_JOYSTICK_OPERATOR = 1;
   }
 }
