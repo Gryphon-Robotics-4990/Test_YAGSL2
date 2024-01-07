@@ -239,8 +239,8 @@ public class SwerveSubsystem extends SubsystemBase
    */
   public ChassisSpeeds getTargetSpeeds(double xInput, double yInput, double headingX, double headingY)
   {
-    xInput = Math.pow(1 * xInput, 5);
-    yInput = Math.pow(1 * yInput, 5);
+    xInput = Math.pow(-1 * xInput, 1);
+    yInput = Math.pow(-1 * yInput, 1);
     return swerveDrive.swerveController.getTargetSpeeds(xInput, yInput, headingX, headingY, getHeading().getRadians(), maximumSpeed);  
   }
 
@@ -254,8 +254,8 @@ public class SwerveSubsystem extends SubsystemBase
    */
   public ChassisSpeeds getTargetSpeeds(double xInput, double yInput, Rotation2d angle)
   {
-    xInput = Math.pow(1 * xInput, 5);
-    yInput = Math.pow(1 * yInput, 5);
+    xInput = Math.pow(-1 * xInput, 1);
+    yInput = Math.pow(-1 * yInput, 1);
     return swerveDrive.swerveController.getTargetSpeeds(xInput,
                                                         yInput,
                                                         angle.getRadians(),
