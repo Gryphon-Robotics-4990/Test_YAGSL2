@@ -81,7 +81,6 @@ public class SwerveSubsystem extends SubsystemBase
       throw new RuntimeException(e);
     }
     swerveDrive.setHeadingCorrection(false); // Heading correction should only be used while controlling the robot via angle.
-    resetOdometry(new Pose2d(0.0, 0.0, new Rotation2d(0.0)));
   }
 
   /**
@@ -239,8 +238,8 @@ public class SwerveSubsystem extends SubsystemBase
    */
   public ChassisSpeeds getTargetSpeeds(double xInput, double yInput, double headingX, double headingY)
   {
-    xInput = Math.pow(-1 * xInput, 1);
-    yInput = Math.pow(-1 * yInput, 1);
+    xInput = Math.pow(xInput, 3);
+    yInput = Math.pow(yInput, 3);
     return swerveDrive.swerveController.getTargetSpeeds(xInput, yInput, headingX, headingY, getHeading().getRadians(), maximumSpeed);  
   }
 
@@ -254,8 +253,8 @@ public class SwerveSubsystem extends SubsystemBase
    */
   public ChassisSpeeds getTargetSpeeds(double xInput, double yInput, Rotation2d angle)
   {
-    xInput = Math.pow(-1 * xInput, 1);
-    yInput = Math.pow(-1 * yInput, 1);
+    xInput = Math.pow(xInput, 3);
+    yInput = Math.pow(yInput, 3);
     return swerveDrive.swerveController.getTargetSpeeds(xInput,
                                                         yInput,
                                                         angle.getRadians(),
