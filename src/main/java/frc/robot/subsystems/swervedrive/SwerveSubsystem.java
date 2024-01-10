@@ -75,7 +75,7 @@ public class SwerveSubsystem extends SubsystemBase
     SwerveDriveTelemetry.verbosity = TelemetryVerbosity.HIGH;
     try
     {
-      swerveDrive = new SwerveParser(directory).createSwerveDrive(maximumSpeed, SteeringConversionFactor, DriveConversionFactor);
+      swerveDrive = new SwerveParser(directory).createSwerveDrive(maximumSpeed, 360.0, DriveConversionFactor);
     } catch (Exception e)
     {
       throw new RuntimeException(e);
