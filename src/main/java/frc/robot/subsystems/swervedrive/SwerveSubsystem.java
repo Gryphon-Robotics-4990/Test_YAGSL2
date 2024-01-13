@@ -80,6 +80,7 @@ public class SwerveSubsystem extends SubsystemBase
     {
       throw new RuntimeException(e);
     }
+    
     swerveDrive.setHeadingCorrection(false); // Heading correction should only be used while controlling the robot via angle. 
   }
 
@@ -110,6 +111,8 @@ public class SwerveSubsystem extends SubsystemBase
    */
   public void drive(Translation2d translation, double rotation, boolean fieldRelative)
   {
+    // TODO since we need to do this for setChassisSpeeds, break this out into a separate method
+    //Translation2d translation = trans.rotateBy(Rotation2d.fromDegrees(90));
     swerveDrive.drive(translation,
                       rotation,
                       fieldRelative,
