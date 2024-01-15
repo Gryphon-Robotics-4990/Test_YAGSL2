@@ -55,7 +55,7 @@ public class RobotContainer
                                                           // Applies deadbands and inverts controls because joysticks
                                                           // are back-right positive while robot
                                                           // controls are front-left positive
-                                                          () -> MathUtil.applyDeadband(joystickDrive.getRawAxis(AxisF310.JoystickLeftY),
+                                                          () -> MathUtil.applyDeadband(-joystickDrive.getRawAxis(AxisF310.JoystickLeftY),
                                                                                        OperatorConstants.LEFT_Y_DEADBAND),
                                                                                        // inverted joystick left X
                                                           () -> MathUtil.applyDeadband(-joystickDrive.getRawAxis(AxisF310.JoystickLeftX),
@@ -65,7 +65,7 @@ public class RobotContainer
 
     AbsoluteFieldDrive closedFieldAbsoluteDrive = new AbsoluteFieldDrive(drivebase,
                                                                          () ->
-                                                                             MathUtil.applyDeadband(joystickDrive.getRawAxis(AxisF310.JoystickLeftY),
+                                                                             MathUtil.applyDeadband(-joystickDrive.getRawAxis(AxisF310.JoystickLeftY),
                                                                                                     OperatorConstants.LEFT_Y_DEADBAND),
                                                                                                     // inverted joystick left X
                                                                          () -> MathUtil.applyDeadband(-joystickDrive.getRawAxis(AxisF310.JoystickLeftX),
