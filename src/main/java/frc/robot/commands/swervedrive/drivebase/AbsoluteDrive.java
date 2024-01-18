@@ -71,7 +71,7 @@ public class AbsoluteDrive extends CommandBase
   {
 
     // Get the desired chassis speeds based on a 2 joystick module.
-    ChassisSpeeds desiredSpeeds = swerve.getTargetSpeeds(vX.getAsDouble(), vY.getAsDouble(),
+    ChassisSpeeds desiredSpeeds = swerve.getTargetSpeeds(-vX.getAsDouble(), -vY.getAsDouble(),
                                                          headingHorizontal.getAsDouble(),
                                                          headingVertical.getAsDouble());
 

@@ -55,20 +55,18 @@ public class RobotContainer
                                                           // Applies deadbands and inverts controls because joysticks
                                                           // are back-right positive while robot
                                                           // controls are front-left positive
-                                                          () -> MathUtil.applyDeadband(-joystickDrive.getRawAxis(AxisF310.JoystickLeftY),
+                                                          () -> MathUtil.applyDeadband(joystickDrive.getRawAxis(AxisF310.JoystickLeftY),
                                                                                        OperatorConstants.LEFT_Y_DEADBAND),
-                                                                                       // inverted joystick left X
-                                                          () -> MathUtil.applyDeadband(-joystickDrive.getRawAxis(AxisF310.JoystickLeftX),
+                                                          () -> MathUtil.applyDeadband(joystickDrive.getRawAxis(AxisF310.JoystickLeftX),
                                                                                        OperatorConstants.LEFT_X_DEADBAND),
                                                           () -> -joystickDrive.getRawAxis(AxisF310.JoystickRightX),
                                                           () -> -joystickDrive.getRawAxis(AxisF310.JoystickRightY));
 
     AbsoluteFieldDrive closedFieldAbsoluteDrive = new AbsoluteFieldDrive(drivebase,
                                                                          () ->
-                                                                             MathUtil.applyDeadband(-joystickDrive.getRawAxis(AxisF310.JoystickLeftY),
+                                                                             MathUtil.applyDeadband(joystickDrive.getRawAxis(AxisF310.JoystickLeftY),
                                                                                                     OperatorConstants.LEFT_Y_DEADBAND),
-                                                                                                    // inverted joystick left X
-                                                                         () -> MathUtil.applyDeadband(-joystickDrive.getRawAxis(AxisF310.JoystickLeftX),
+                                                                         () -> MathUtil.applyDeadband(joystickDrive.getRawAxis(AxisF310.JoystickLeftX),
                                                                                                       OperatorConstants.LEFT_X_DEADBAND),
                                                                          () -> joystickDrive.getRawAxis(2));
     TeleopDrive simClosedFieldRel = new TeleopDrive(drivebase,
